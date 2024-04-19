@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package water;
+
+service WaterQualityService {
+  rpc getWaterQualityForecast (WaterQualityForecastRequest) returns (stream WaterQualityForecast);
+  rpc uploadWaterQualitySample (stream WaterQualitySample) returns (WaterQualityAnalysisResponse);
+}
+
+message WaterQualitySample {
+  double pHLevel = 1;
+  double temperature = 2;
+  double dissolvedOxygen = 3;
+}
+
+message WaterQualityAnalysisResponse {
+  string analysisResult = 1;
+}
+
+message WaterQualityForecastRequest {
+}
+
+message WaterQualityForecast {
+  double pHLevel = 1;
+  double temperature = 2;
+  double dissolvedOxygen = 3;
+  string waterQuality = 4;
+}

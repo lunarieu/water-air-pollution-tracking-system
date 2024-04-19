@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package air;
+
+service AirQualityService {
+  rpc getAirQuality (AirQualityRequest) returns (AirQualityResponse);
+}
+
+message AirQualityRequest {
+}
+
+message AirQualityResponse {
+  double co2Level = 1;
+  double temperature = 2;
+  double humidity = 3;
+  string airQuality = 4;
+}
